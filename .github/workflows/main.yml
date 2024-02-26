@@ -1,0 +1,15 @@
+name: Trigger_Email_Workflow
+
+on:
+  workflow_dispatch
+
+jobs:
+  job1:
+    name: RunTranscript
+    runs-on: windows-latest
+    steps:
+    - name: Azure PowerShell Action1
+      uses: Azure/powershell@v1
+      with:
+        script: ./Modules/Module15.ps1
+        azPSVersion: "latest"
