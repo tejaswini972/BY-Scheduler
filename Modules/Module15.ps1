@@ -4,18 +4,6 @@ function Send-Email {
     param (
 
         [Parameter(Mandatory = $True)]
-        [ValidateNotNullOrEmpty()]
-        [guid]$KeyVaultSubscriptionID,
-
-        [Parameter(Mandatory = $True)]
-        [ValidateNotNullOrEmpty()]
-        [string]$KeyVaultName,
-
-        [Parameter(Mandatory = $True)]
-        [ValidateNotNullOrEmpty()]
-        [string]$SMTPSecretName,
-
-        [Parameter(Mandatory = $True)]
         [ValidateSet("Phasewise", "FinalReport", "LongRunningActivity", "Failure", "Cancellation", "ReSchedule")]
         [string]$EmailScenario,
 
@@ -101,13 +89,8 @@ function Send-Email {
         # Getting Secret Value from Azure Keyvault[SMTP Secret Value]
         Write-Information -MessageData "Getting Secret Value from Azure Keyvault[SMTP Secret Value]"
 
-        try {
-            $SMTPPwd = Get-KeyVaultSecret -KeyVaultSubscriptionID $KeyVaultSubscriptionID -SecretName $SMTPSecretName -KeyVaultName $KeyVaultName -ErrorAction Stop
-        }
-        catch {
-            Write-Information -MessageData "Encountered Error while getting secret value from Azure Keyvault[SMTP Secret Value].`n" -InformationAction Continue
-            Write-Information -MessageData $($_.Exception | Out-String) -InformationAction Continue; Write-Information -MessageData $($_.InvocationInfo | Out-String) -InformationAction Continue; throw
-        }
+        $SMTPPwd = "sk_nVDq4jqvtQs#nU+cJjcG-&XYdZup8tDUMumkK"
+      
 
         # Encode the credentials as Base64
         Write-Information -MessageData "Generating the token for authentication"
@@ -223,3 +206,9 @@ function Get-ValueFromJson {
         return $GetValue
     }
 }
+
+
+$EmailScenario ="Phasewise"
+$RunId = "366b88da-3a5c-411c-8d39-1e8f78ef5a76"
+$DRPhase = "Failover"
+Send-Email -RunId $RunId -EmailScenario $EmailScenario -DRPhase $DRPhase
