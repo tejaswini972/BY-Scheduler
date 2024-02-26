@@ -8,8 +8,9 @@ jobs:
     name: Trigger_Email
     runs-on: windows-latest
     steps:
-    - name: Azure PowerShell Action1
-      uses: Azure/powershell@v1
+    - name: Run PowerShell script
+      uses: actions/powershell@v3
       with:
-        args: ./Modules/Module15.ps1
-        azPSVersion: "latest"
+        run: |
+          ./Modules/Module15.ps1
+
