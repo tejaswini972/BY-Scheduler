@@ -152,7 +152,7 @@ function Get-ValueFromJson {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $False)]
-        [string]$FilePath = "Data\Data.json",
+        [string]$FilePath = "Data/Data.json",
 
         [Parameter(Mandatory = $True)]
         [string]$ModuleID,
