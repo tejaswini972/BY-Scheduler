@@ -11,6 +11,5 @@ jobs:
     - name: Azure PowerShell Action1
       uses: Azure/powershell@v1
       with:
-        inlineScript: |
-          ./Modules/Module15.ps1
+        args: ./Modules/Module15.ps1
         azPSVersion: "latest"
