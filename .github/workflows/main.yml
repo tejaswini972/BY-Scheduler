@@ -12,8 +12,8 @@ jobs:
         uses: actions/checkout@v3  # Download your repository code
 
       - name: Run PowerShell script
-        uses: actions/powershell@v3
-        with:
-          args: ./Modules/Module15.ps1  # Replace "Module15.ps1" with your script name
+        shell: pwsh
+        run: |
+          ./Modules/Module15.ps1  
 
 
