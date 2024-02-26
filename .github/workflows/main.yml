@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Run PowerShell script
-      uses: actions/powershell@v3
-      with:
-        args: ./Modules/Module15.ps1
+      shell: pwsh
+      run: |
+        ./Modules/Module15.ps1
 
