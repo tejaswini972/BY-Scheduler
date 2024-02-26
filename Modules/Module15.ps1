@@ -94,7 +94,7 @@ function Send-Email {
 
         # Encode the credentials as Base64
         Write-Information -MessageData "Generating the token for authentication"
-        $base64AuthInfo = [System.Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $SMTPUsername, $SMTPPwd[1])))
+        $base64AuthInfo = [System.Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $SMTPUsername, $SMTPPwd)))
 
         # Define the headers with the Basic Auth token
         $headers = @{
