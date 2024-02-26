@@ -11,6 +11,5 @@ jobs:
     - name: Run PowerShell script
       uses: actions/powershell@v3
       with:
-        run: |
-          ./Modules/Module15.ps1
+        args: ./Modules/Module15.ps1
 
