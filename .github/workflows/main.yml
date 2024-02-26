@@ -14,6 +14,7 @@ jobs:
       - name: Run PowerShell script
         shell: pwsh
         run: |
+          ls
           ./Modules/Module15.ps1  
 
 
